@@ -35,11 +35,21 @@ public class Main {
         return values;
     }
 
+    public double sumOfValues(String filename) throws IOException {
+        ArrayList<Double> values = readValues(filename);
+        double sum = 0.0;
+        for (double value : values) {
+            sum += value;
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
         Main example = new Main();
         try {
             String resourceName = "task1/data.txt";
             System.out.println(example.readValues(resourceName));
+            System.out.println(example.sumOfValues(resourceName));
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
